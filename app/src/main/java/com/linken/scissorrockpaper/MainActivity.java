@@ -10,7 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,28 +34,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         */
-        final EditText amtTxt = (EditText) findViewById(R.id.amtField);
-        final EditText pctTxt = (EditText) findViewById(R.id.pctField);
-        final TextView totTxt = (TextView) findViewById(R.id.totalView);
-        Button eqBtn    = (Button) findViewById(R.id.eqButton);
 
-        eqBtn.setOnClickListener(new View.OnClickListener() {
+        addListenerOnButton();
+
+    }
+
+    public  void addListenerOnButton () {
+        final RadioGroup rspGroup = (RadioGroup) findViewById(R.id.rspGroup);
+        Button plyBtn = (Button) findViewById(R.id.plyBtn);
+
+        plyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float amount = Float.parseFloat(amtTxt.getText().toString());
-                float percentage = Float.parseFloat(pctTxt.getText().toString());
-                float total = amount*percentage/100;
-                totTxt.setText(Float.toString(total));
+                int selected = rspGroup.getCheckedRadioButtonId();
+                RadioButton selBtn = (RadioButton) findViewById(selected);
+                Toast.makeText(MainActivity.this, selBtn.getText(), Toast.LENGTH_SHORT).show();
             }
-        }
-        );
-
-
-
-
-
-
-
+        });
     }
 
     @Override
