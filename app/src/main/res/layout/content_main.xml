@@ -15,52 +15,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="X"
-        android:id="@+id/textView"
-        android:textColor="#11329e"
-        android:textAlignment="center"
-        android:textSize="50dp"
-        android:layout_marginTop="95dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/amtField"
-        android:layout_marginTop="34dp"
-        android:hint="Enter amount here"
-        android:textAlignment="center"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/pctField"
-        android:hint="Enter percentage here"
-        android:textAlignment="center"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:text="%"
-        android:elegantTextHeight="false"
-        android:layout_below="@+id/textView"
-        android:layout_toRightOf="@+id/pctField"
-        android:layout_toEndOf="@+id/pctField" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/hello"
         android:id="@+id/textView2"
         android:textColor="#11329e"
@@ -71,32 +25,68 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="31dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:id="@+id/totalView"
-        android:textColor="#11329e"
-        android:textAlignment="center"
-        android:textSize="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/eqButton"
-        android:layout_centerHorizontal="true" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="="
-        android:id="@+id/eqButton"
-        android:textSize="40dp"
-        android:layout_below="@+id/pctField"
-        android:layout_marginTop="33dp"
-        android:layout_alignLeft="@+id/pctField"
-        android:layout_alignStart="@+id/pctField"
-        android:layout_alignRight="@+id/pctField"
-        android:layout_alignEnd="@+id/pctField"
-        android:height="60dp"
-        android:textAlignment="center"
-        android:background="#b5603f" />
+        android:text="play"
+        android:id="@+id/plyBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="69dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_above="@+id/plyBtn"
+        android:showDividers="end"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:background="#e2801f"
+        android:divider="@color/abc_input_method_navigation_guard"
+        android:id="@+id/rspGroup">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rock"
+            android:id="@+id/rockBtn"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp"
+            android:checked="false"
+            android:background="#da8dd6"
+            android:textSize="40dp"
+            android:textColor="#337bce" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paper"
+            android:id="@+id/papBtn"
+            android:checked="false"
+            android:background="#da8dd6"
+            android:textSize="40dp"
+            android:textColor="#337bce"
+            android:layout_marginTop="38dp"
+            android:layout_below="@+id/rockBtn"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scissor"
+            android:id="@+id/sciBtn"
+            android:checked="false"
+            android:background="#da8dd6"
+            android:textSize="40dp"
+            android:textColor="#337bce"
+            android:layout_marginTop="38dp"
+            android:layout_below="@+id/rockBtn"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RadioGroup>
 
 </RelativeLayout>
