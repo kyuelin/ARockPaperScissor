@@ -1,5 +1,6 @@
 package com.linken.scissorrockpaper;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,32 +11,33 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    LinearLayout bg;
+    Button btnAgain;
+    ImageView viewR;
+    ImageView viewS;
+    ImageView viewP;
+    ArrayList<ImageView> listOfViews;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.linear_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
 
         TextView helloView = (TextView) findViewById(R.id.helloView);
         StringBuilder strb = new StringBuilder("Hello ");
@@ -57,24 +59,66 @@ public class MainActivity extends AppCompatActivity {
         }
         helloView.setText(strb.toString());
 
+        addListenerOnImageView();
+
         addListenerOnButton();
 
     }
 
-    public  void addListenerOnButton () {
-        /*
-        final RadioGroup rspGroup = (RadioGroup) findViewById(R.id.rspGroup);
-        Button plyBtn = (Button) findViewById(R.id.plyBtn);
-
-        plyBtn.setOnClickListener(new View.OnClickListener() {
+    private void addListenerOnButton() {
+        btnAgain = (Button) findViewById(R.id.buttonAgn);
+        btnAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int selected = rspGroup.getCheckedRadioButtonId();
-                RadioButton selBtn = (RadioButton) findViewById(selected);
-                Toast.makeText(MainActivity.this, selBtn.getText(), Toast.LENGTH_SHORT).show();
+                for(ImageView image: listOfViews) {
+                    image.setVisibility(View.VISIBLE);
+                }
             }
         });
-        */
+    }
+
+    private void addListenerOnImageView() {
+        viewR = (ImageView) findViewById(R.id.imgRock);
+        viewS = (ImageView) findViewById(R.id.imgScissor);
+        viewP = (ImageView) findViewById(R.id.imgPaper);
+
+        listOfViews = new ArrayList<>();
+        listOfViews.add(viewR);
+        listOfViews.add(viewS);
+        listOfViews.add(viewP);
+
+        viewR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideOtherView(viewR);
+                Toast.makeText(MainActivity.this, "You selected Rock!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        viewS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideOtherView(viewS);
+                Toast.makeText(MainActivity.this, "You selected Scissor!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        viewP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideOtherView(viewP);
+                Toast.makeText(MainActivity.this, "You selected Paper!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    void hideOtherView(ImageView selected) {
+
+        for(ImageView view : listOfViews) {
+            if (view != selected) {
+                view.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 
     @Override

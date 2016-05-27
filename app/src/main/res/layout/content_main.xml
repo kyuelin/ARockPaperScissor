@@ -26,46 +26,5 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="3dp" />
 
-<<<<<<< HEAD
-    <ImageButton
-        android:layout_width="wrap_content"
-=======
-    <Button
-        android:layout_width="fill_parent"
->>>>>>> 9f778e537d142943e60f2153e39cd391dd42430e
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_below="@+id/helloView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="49dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="96dp"
-        android:src="@drawable/abc_ic_menu_cut_mtrl_alpha"
-        android:background="#c83e3e"
-        android:clickable="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
-        android:src="@drawable/abc_ic_menu_paste_mtrl_am_alpha"
-        android:layout_marginTop="85dp"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignRight="@+id/helloView"
-        android:layout_alignEnd="@+id/helloView"
-        android:layout_marginRight="56dp"
-        android:layout_marginEnd="56dp"
-        android:clickable="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton3"
-        android:src="@drawable/abc_ic_voice_search_api_mtrl_alpha"
-        android:layout_below="@+id/imageButton2"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
-        android:clickable="true" />
 
 </RelativeLayout>

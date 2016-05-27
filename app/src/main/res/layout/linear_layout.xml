@@ -1,22 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
-        android:layout_width="fill_parent"
+        android:id="@+id/helloView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#ff0000"
+        android:layout_marginBottom="50dp"
         android:background="#ffff00"
-        android:textSize="32sp"
-        android:text="some text..."/>
+        android:gravity="center"
+        android:text="@string/hello"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/imgRock"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/rock" />
+
+    <ImageView
+        android:id="@+id/imgScissor"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/scissor" />
+
+    <ImageView
+        android:id="@+id/imgPaper"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/paper" />
+
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonAgn"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="b1"/>
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:text="b2"/>
+        android:text="Play Again?"
+        android:background="#ffff00"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>
