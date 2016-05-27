@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void addListenerOnButton () {
+        /*
         final RadioGroup rspGroup = (RadioGroup) findViewById(R.id.rspGroup);
         Button plyBtn = (Button) findViewById(R.id.plyBtn);
 
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, selBtn.getText(), Toast.LENGTH_SHORT).show();
             }
         });
+        */
     }
 
     @Override

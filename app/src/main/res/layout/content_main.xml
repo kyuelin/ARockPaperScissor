@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.linken.scissorrockpaper.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:clickable="true">
 
     <TextView
         android:layout_width="match_parent"
@@ -23,70 +24,43 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="31dp" />
+        android:layout_marginTop="3dp" />
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="play"
-        android:id="@+id/plyBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69dp" />
-
-    <RadioGroup
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
         android:layout_below="@+id/helloView"
-        android:layout_above="@+id/plyBtn"
-        android:showDividers="end"
-        android:orientation="vertical"
-        android:weightSum="1"
-        android:background="#e2801f"
-        android:divider="@color/abc_input_method_navigation_guard"
-        android:id="@+id/rspGroup">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="96dp"
+        android:src="@drawable/abc_ic_menu_cut_mtrl_alpha"
+        android:background="#c83e3e"
+        android:clickable="true" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rock"
-            android:id="@+id/rockBtn"
-            android:layout_below="@+id/helloView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="37dp"
-            android:checked="false"
-            android:background="#da8dd6"
-            android:textSize="40dp"
-            android:textColor="#337bce" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton2"
+        android:src="@drawable/abc_ic_menu_paste_mtrl_am_alpha"
+        android:layout_marginTop="85dp"
+        android:layout_below="@+id/imageButton"
+        android:layout_alignRight="@+id/helloView"
+        android:layout_alignEnd="@+id/helloView"
+        android:layout_marginRight="56dp"
+        android:layout_marginEnd="56dp"
+        android:clickable="true" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Paper"
-            android:id="@+id/papBtn"
-            android:checked="false"
-            android:background="#da8dd6"
-            android:textSize="40dp"
-            android:textColor="#337bce"
-            android:layout_marginTop="38dp"
-            android:layout_below="@+id/rockBtn"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scissor"
-            android:id="@+id/sciBtn"
-            android:checked="false"
-            android:background="#da8dd6"
-            android:textSize="40dp"
-            android:textColor="#337bce"
-            android:layout_marginTop="38dp"
-            android:layout_below="@+id/rockBtn"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-    </RadioGroup>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:src="@drawable/abc_ic_voice_search_api_mtrl_alpha"
+        android:layout_below="@+id/imageButton2"
+        android:layout_toRightOf="@+id/imageButton"
+        android:layout_toEndOf="@+id/imageButton"
+        android:clickable="true" />
 
 </RelativeLayout>
