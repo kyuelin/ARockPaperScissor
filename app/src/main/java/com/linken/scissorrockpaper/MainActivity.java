@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView helloView = (TextView) findViewById(R.id.helloView);
         StringBuilder strb = new StringBuilder("Hello ");
-        int rint = new Random().nextInt(100)%2;
+        int rint = new Random().nextInt(100)%4;
         System.out.println("random int : " + rint);
         switch(rint) {
             case 0:
@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 1:
                 strb.append("Lyla!");
+                break;
+            case 2:
+                strb.append("Peggy!");
+                break;
+            default:
+                strb.append("Kenneth!");
                 break;
         }
         helloView.setText(strb.toString());

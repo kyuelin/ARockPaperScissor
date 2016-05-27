@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ScissorRock&amp;Paper.iml" filepath="$PROJECT_DIR$/ScissorRock&amp;Paper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ARockScissorPaper.iml" filepath="$PROJECT_DIR$/ARockScissorPaper.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
