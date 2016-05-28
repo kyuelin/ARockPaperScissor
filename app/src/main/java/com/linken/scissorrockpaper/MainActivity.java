@@ -1,20 +1,14 @@
 package com.linken.scissorrockpaper;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +32,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //greeting();
+        addListenerOnImageView();
+        addListenerOnButton();
+    }
 
+    private void greeting() {
         TextView helloView = (TextView) findViewById(R.id.helloView);
         StringBuilder strb = new StringBuilder("Hello ");
         int rint = new Random().nextInt(100)%4;
@@ -58,11 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         helloView.setText(strb.toString());
-
-        addListenerOnImageView();
-
-        addListenerOnButton();
-
     }
 
     private void addListenerOnButton() {
