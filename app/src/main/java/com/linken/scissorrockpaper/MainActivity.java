@@ -1,5 +1,6 @@
 package com.linken.scissorrockpaper;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView viewS;
     ImageView viewP;
     ArrayList<ImageView> listOfViews;
+    ArrayList<String> listOfViewNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //greeting();
         addListenerOnImageView();
         addListenerOnButton();
+
     }
 
     private void greeting() {
@@ -67,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
                 for(ImageView image: listOfViews) {
                     image.setVisibility(View.VISIBLE);
                 }
+                btnAgain.setText(R.string.btn_pick_one);
+                bg = (LinearLayout) findViewById(R.id.background);
+                bg.setBackgroundColor(Color.WHITE);
             }
         });
     }
@@ -81,33 +87,59 @@ public class MainActivity extends AppCompatActivity {
         listOfViews.add(viewS);
         listOfViews.add(viewP);
 
+        listOfViewNames = new ArrayList<>();
+        listOfViewNames.add("Rock");
+        listOfViewNames.add("Scissor");
+        listOfViewNames.add("Paper");
+
         viewR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideOtherView(viewR);
-                Toast.makeText(MainActivity.this, "You selected Rock!", Toast.LENGTH_SHORT).show();
+                hideOtherViews(viewR);
+                play(viewR);
             }
         });
 
         viewS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideOtherView(viewS);
-                Toast.makeText(MainActivity.this, "You selected Scissor!", Toast.LENGTH_SHORT).show();
+                hideOtherViews(viewS);
+                play(viewS);
             }
         });
 
         viewP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideOtherView(viewP);
-                Toast.makeText(MainActivity.this, "You selected Paper!", Toast.LENGTH_SHORT).show();
+                hideOtherViews(viewP);
+                play(viewP);
             }
         });
     }
 
-    void hideOtherView(ImageView selected) {
+    private void play(ImageView yourView) {
+        int yourInd = listOfViews.indexOf(yourView);
+        int myInd = new Random().nextInt(3);
+        StringBuilder strBuild = new StringBuilder("You selected ").append(listOfViewNames.get(yourInd)).append(".\n");
+        strBuild.append("I selected ").append(listOfViewNames.get(myInd)).append(".\n");
+        bg = (LinearLayout) findViewById(R.id.background);
+        if (yourInd == myInd) {
+            strBuild.append("Draw!");
+            bg.setBackgroundColor(Color.BLUE);
+        }
+        else if ((yourInd+1)%3 == myInd) {
+            strBuild.append("You won!");
+            bg.setBackgroundColor(Color.GREEN);
+        }
+        else {
+            strBuild.append("You lost!");
+            bg.setBackgroundColor(Color.RED);
+        }
+        Toast.makeText(MainActivity.this, strBuild.toString(), Toast.LENGTH_SHORT).show();
+        btnAgain.setText(R.string.btn_play_again);
+    }
 
+    private void hideOtherViews(ImageView selected) {
         for(ImageView view : listOfViews) {
             if (view != selected) {
                 view.setVisibility(View.INVISIBLE);

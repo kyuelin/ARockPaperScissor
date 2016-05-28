@@ -9,7 +9,7 @@
         android:id="@+id/helloView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="5dp"
         android:background="#ffff00"
         android:gravity="center"
         android:text="@string/hello"
@@ -19,8 +19,8 @@
         android:id="@+id/imgRock"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="5dp"
         android:layout_gravity="center"
-        android:scaleType="fitCenter"
         android:src="@drawable/rock" />
 
     <ImageView
@@ -28,7 +28,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:scaleType="fitCenter"
+        android:layout_marginBottom="5dp"
         android:src="@drawable/scissor" />
 
     <ImageView
@@ -36,14 +36,14 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:scaleType="fitCenter"
+        android:layout_marginBottom="5dp"
         android:src="@drawable/paper" />
 
     <Button
         android:id="@+id/buttonAgn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Play Again?"
+        android:text="@string/btn_pick_one"
         android:background="#ffff00"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
