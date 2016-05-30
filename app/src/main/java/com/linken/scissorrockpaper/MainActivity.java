@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder strBuild = new StringBuilder("You selected ").append(listOfViewNames.get(yourInd)).append(".\n");
         strBuild.append("I selected ").append(listOfViewNames.get(myInd)).append(".\n");
         bg = (LinearLayout) findViewById(R.id.background);
+
+        
         if (yourInd == myInd) {
             strBuild.append("Draw!");
             bg.setBackgroundColor(Color.BLUE);
