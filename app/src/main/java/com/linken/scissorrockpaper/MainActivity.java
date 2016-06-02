@@ -11,31 +11,29 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout bg;
+    LinearLayout yours, mine;
     Button btnAgain;
-    ImageView viewR;
-    ImageView viewS;
-    ImageView viewP;
-    ArrayList<ImageView> listOfViews;
-    ArrayList<String> listOfViewNames;
+    ImageView viewYR, viewYS, viewYP, viewMR, viewMS, viewMP;
+    ArrayList<ImageView> listOfYourViews, listOfMyViews;
+    //ArrayList<String> listOfViewNames;
+    TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-        setContentView(R.layout.linear_layout);
+        setContentView(R.layout.home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //greeting();
-        addListenerOnImageView();
+        addListenerOnYourImageView();
         addListenerOnButton();
 
     }
@@ -67,82 +65,108 @@ public class MainActivity extends AppCompatActivity {
         btnAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for(ImageView image: listOfViews) {
+                for(ImageView image: listOfYourViews) {
                     image.setVisibility(View.VISIBLE);
+                    image.setClickable(true);
+                }
+                for(ImageView image: listOfMyViews) {
+                    image.setVisibility(View.INVISIBLE);
                 }
                 btnAgain.setText(R.string.btn_pick_one);
-                bg = (LinearLayout) findViewById(R.id.background);
-                bg.setBackgroundColor(Color.WHITE);
+                yours.setBackgroundColor(Color.WHITE);
+                mine.setBackgroundColor(Color.WHITE);
+                result.setText("");
+
             }
         });
     }
 
-    private void addListenerOnImageView() {
-        viewR = (ImageView) findViewById(R.id.imgRock);
-        viewS = (ImageView) findViewById(R.id.imgScissor);
-        viewP = (ImageView) findViewById(R.id.imgPaper);
+    private void addListenerOnYourImageView() {
+        viewYR = (ImageView) findViewById(R.id.yourRock);
+        viewYS = (ImageView) findViewById(R.id.yourScissor);
+        viewYP = (ImageView) findViewById(R.id.yourPaper);
 
-        listOfViews = new ArrayList<>();
-        listOfViews.add(viewR);
-        listOfViews.add(viewS);
-        listOfViews.add(viewP);
+        listOfYourViews = new ArrayList<>();
+        listOfYourViews.add(viewYR);
+        listOfYourViews.add(viewYS);
+        listOfYourViews.add(viewYP);
 
-        listOfViewNames = new ArrayList<>();
-        listOfViewNames.add("Rock");
-        listOfViewNames.add("Scissor");
-        listOfViewNames.add("Paper");
-
-        viewR.setOnClickListener(new View.OnClickListener() {
+//        listOfViewNames = new ArrayList<>();
+//        listOfViewNames.add("Rock");
+//        listOfViewNames.add("Scissor");
+//        listOfViewNames.add("Paper");
+       
+        viewYR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideOtherViews(viewR);
-                play(viewR);
+                hideOtherYourViews(viewYR);
+                play(viewYR);
             }
         });
 
-        viewS.setOnClickListener(new View.OnClickListener() {
+        viewYS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideOtherViews(viewS);
-                play(viewS);
+                hideOtherYourViews(viewYS);
+                play(viewYS);
             }
         });
 
-        viewP.setOnClickListener(new View.OnClickListener() {
+        viewYP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideOtherViews(viewP);
-                play(viewP);
+                hideOtherYourViews(viewYP);
+                play(viewYP);
             }
         });
     }
 
     private void play(ImageView yourView) {
-        int yourInd = listOfViews.indexOf(yourView);
-        int myInd = new Random().nextInt(3);
-        StringBuilder strBuild = new StringBuilder("You selected ").append(listOfViewNames.get(yourInd)).append(".\n");
-        strBuild.append("I selected ").append(listOfViewNames.get(myInd)).append(".\n");
-        bg = (LinearLayout) findViewById(R.id.background);
+        viewMR = (ImageView) findViewById(R.id.myRock);
+        viewMS = (ImageView) findViewById(R.id.myScissor);
+        viewMP = (ImageView) findViewById(R.id.myPaper);
 
-        
+        listOfMyViews = new ArrayList<>();
+        listOfMyViews.add(viewMR);
+        listOfMyViews.add(viewMS);
+        listOfMyViews.add(viewMP);
+
+        yours = (LinearLayout) findViewById(R.id.yours);
+        mine  = (LinearLayout) findViewById(R.id.mine);
+
+        int yourInd = listOfYourViews.indexOf(yourView);
+        int myInd = new Random().nextInt(3);
+        StringBuilder strBuild = new StringBuilder();
+//        strBuild.append("You selected ").append(listOfViewNames.get(yourInd)).append(".\n");
+//        strBuild.append("I selected ").append(listOfViewNames.get(myInd)).append(".\n");
+        listOfMyViews.get(myInd).setVisibility(View.VISIBLE);
+
         if (yourInd == myInd) {
             strBuild.append("Draw!");
-            bg.setBackgroundColor(Color.BLUE);
+            yours.setBackgroundColor(Color.BLUE);
+            mine.setBackgroundColor(Color.BLUE);
         }
         else if ((yourInd+1)%3 == myInd) {
             strBuild.append("You won!");
-            bg.setBackgroundColor(Color.GREEN);
+            yours.setBackgroundColor(Color.GREEN);
+            mine.setBackgroundColor(Color.RED);
         }
         else {
             strBuild.append("You lost!");
-            bg.setBackgroundColor(Color.RED);
+            mine.setBackgroundColor(Color.GREEN);
+            yours.setBackgroundColor(Color.RED);
         }
-        Toast.makeText(MainActivity.this, strBuild.toString(), Toast.LENGTH_SHORT).show();
+        
+        //Toast.makeText(MainActivity.this, strBuild.toString(), Toast.LENGTH_SHORT).show();
+        result = (TextView) findViewById(R.id.result);
+        result.setText(strBuild.toString());
+
         btnAgain.setText(R.string.btn_play_again);
+        yourView.setClickable(false);
     }
 
-    private void hideOtherViews(ImageView selected) {
-        for(ImageView view : listOfViews) {
+    private void hideOtherYourViews(ImageView selected) {
+        for(ImageView view : listOfYourViews) {
             if (view != selected) {
                 view.setVisibility(View.INVISIBLE);
             }
