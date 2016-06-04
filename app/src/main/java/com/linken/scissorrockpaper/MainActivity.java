@@ -1,6 +1,7 @@
 package com.linken.scissorrockpaper;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,12 +18,13 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout yours, mine;
-    Button btnAgain;
-    ImageView viewYR, viewYS, viewYP, viewMR, viewMS, viewMP;
-    ArrayList<ImageView> listOfYourViews, listOfMyViews;
+    private LinearLayout yours, mine;
+    private Button btnAgain;
+    private ImageView viewYR, viewYS, viewYP, viewMR, viewMS, viewMP;
+    private ArrayList<ImageView> listOfYourViews, listOfMyViews;
     //ArrayList<String> listOfViewNames;
-    TextView result;
+    private TextView result;
+    private MediaPlayer mplayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //greeting();
+        greeting();
         addListenerOnYourImageView();
         addListenerOnButton();
 
@@ -145,17 +147,21 @@ public class MainActivity extends AppCompatActivity {
             strBuild.append("Draw!");
             yours.setBackgroundColor(Color.BLUE);
             mine.setBackgroundColor(Color.BLUE);
+            mplayer = MediaPlayer.create(this, R.raw.snd_draw);
         }
         else if ((yourInd+1)%3 == myInd) {
             strBuild.append("You won!");
             yours.setBackgroundColor(Color.GREEN);
             mine.setBackgroundColor(Color.RED);
+            mplayer = MediaPlayer.create(this, R.raw.snd_win);
         }
         else {
             strBuild.append("You lost!");
             mine.setBackgroundColor(Color.GREEN);
             yours.setBackgroundColor(Color.RED);
+            mplayer = MediaPlayer.create(this, R.raw.snd_lose);
         }
+        mplayer.start();
         
         //Toast.makeText(MainActivity.this, strBuild.toString(), Toast.LENGTH_SHORT).show();
         result = (TextView) findViewById(R.id.result);
