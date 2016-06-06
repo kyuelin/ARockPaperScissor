@@ -1,4 +1,4 @@
-package com.linken.scissorrockpaper;
+package com.linken.rockpaperscissor;
 
 import org.junit.Test;
 
