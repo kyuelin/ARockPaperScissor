@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Scissor Rock &amp; Paper</string>
+    <string name="app_name">Rock Paper Scissor</string>
     <string name="action_settings">Settings</string>
     <string name="hello">"Rock Paper Scissor"</string>
     <string name="btn_pick_one">"Pick one!"</string>

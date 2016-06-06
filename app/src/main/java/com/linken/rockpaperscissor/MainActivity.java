@@ -1,4 +1,4 @@
-package com.linken.scissorrockpaper;
+package com.linken.rockpaperscissor;
 
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.linken.scissorrockpaper.R;
 
 import java.util.ArrayList;
 import java.util.Random;
