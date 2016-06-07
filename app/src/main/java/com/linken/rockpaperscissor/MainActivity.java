@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         btnAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mplayer.reset();
                 for(ImageView image: listOfYourViews) {
                     image.setVisibility(View.VISIBLE);
                     image.setClickable(true);
@@ -157,8 +158,8 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             strBuild.append("You lost!");
-            mine.setBackgroundColor(Color.GREEN);
             yours.setBackgroundColor(Color.RED);
+            mine.setBackgroundColor(Color.GREEN);
             mplayer = MediaPlayer.create(this, R.raw.snd_lose);
         }
         mplayer.start();
